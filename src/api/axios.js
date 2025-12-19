@@ -26,13 +26,9 @@ api.interceptors.response.use(
   (error) => {
     console.error("API ERROR →", error);
 
-   if (error.response?.status === 401) {
-  localStorage.removeItem("token");
-
-  if (window.location.pathname !== "/login") {
-    window.location.href = "/login";
-  }
-}
+  if (error.response?.status === 401) {
+      localStorage.removeItem("token");
+    }
 
     return Promise.reject(error);
   }
