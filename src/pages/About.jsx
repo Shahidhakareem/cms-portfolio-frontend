@@ -4,10 +4,11 @@ import api from "../api/axios";
 export function About() {
   const [about, setAbout] = useState(null);
 
-  useEffect(() => {
-    api.get("/about").then((res) => setAbout(res.data));
-    //  api.get("/skills").then((res) => setProjects(res.data || []));
-  }, []);
+ fetch("https://cms-portfolio-backend.onrender.com/api/about")
+    .then((res) => res.json())
+    .then((data) => console.log("FETCH DATA:", data))
+    .catch((err) => console.error("FETCH ERROR:", err));
+}, []);
 
   if (!about) return null;
 
