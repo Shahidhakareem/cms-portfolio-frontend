@@ -5,21 +5,16 @@ export function About() {
   const [about, setAbout] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    console.log("About component mounted");
-
-    api
-      .get("/about")
-      .then((res) => {
-        console.log("API DATA:", res.data);
-        setAbout(res.data);   // ✅ THIS WAS MISSING
-        setLoading(false);
-      })
-      .catch((err) => {
-        console.error("API ERROR:", err);
-        setLoading(false);
-      });
-  }, []);
+ useEffect(() => {
+  fetch("https://cms-portfolio-backend.onrender.com/api/about")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log("FETCH DATA:", data);
+      setAbout(data); // ✅ REQUIRED
+      setLoading(false);
+    })
+    .catch(console.error);
+}, []);
 
   if (loading) return <p>Loading...</p>;
   if (!about) return <p>No data found</p>;
