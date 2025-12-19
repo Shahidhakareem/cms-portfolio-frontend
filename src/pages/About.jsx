@@ -4,11 +4,15 @@ import api from "../api/axios";
 export function About() {
   const [about, setAbout] = useState(null);
 
- fetch("https://cms-portfolio-backend.onrender.com/api/about")
+useEffect(() => {
+  console.log("About component mounted");
+
+  fetch("https://cms-portfolio-backend.onrender.com/api/about")
     .then((res) => res.json())
     .then((data) => console.log("FETCH DATA:", data))
     .catch((err) => console.error("FETCH ERROR:", err));
 }, []);
+
 
   if (!about) return null;
 
