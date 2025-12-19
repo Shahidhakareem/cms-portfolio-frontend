@@ -21,24 +21,74 @@ import AdminEducation from "./admin/AdminEducation";
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/admin/home"
-          element={
-            <ProtectedRoute>
-              <AdminHome />
-            </ProtectedRoute>
-          }
-        />
-        <Route path="/login" element={<Login />} />
-        <Route path="/admin/project" element={<AdminProject />} />
-        <Route path="/admin/about" element={<AdminAbout />} />
-        <Route path="/admin/skill" element={<AdminSkill />} />
-        <Route path="/admin/experience" element={<AdminExperience />} />
-        <Route path="/admin/education" element={<AdminEducation />} />
-        <Route path="/admin/contact" element={<AdminContact />} />
-      </Routes>
+    <Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/login" element={<Login />} />
+
+  <Route
+    path="/admin/home"
+    element={
+      <ProtectedRoute>
+        <AdminHome />
+      </ProtectedRoute>
+    }
+  />
+
+  <Route
+    path="/admin/project"
+    element={
+      <ProtectedRoute>
+        <AdminProject />
+      </ProtectedRoute>
+    }
+  />
+
+  <Route
+    path="/admin/about"
+    element={
+      <ProtectedRoute>
+        <AdminAbout />
+      </ProtectedRoute>
+    }
+  />
+
+  <Route
+    path="/admin/skill"
+    element={
+      <ProtectedRoute>
+        <AdminSkill />
+      </ProtectedRoute>
+    }
+  />
+
+  <Route
+    path="/admin/experience"
+    element={
+      <ProtectedRoute>
+        <AdminExperience />
+      </ProtectedRoute>
+    }
+  />
+
+  <Route
+    path="/admin/education"
+    element={
+      <ProtectedRoute>
+        <AdminEducation />
+      </ProtectedRoute>
+    }
+  />
+
+  <Route
+    path="/admin/contact"
+    element={
+      <ProtectedRoute>
+        <AdminContact />
+      </ProtectedRoute>
+    }
+  />
+</Routes>
+
     </Router>
   );
 }
