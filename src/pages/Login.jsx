@@ -7,16 +7,17 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    try {
-      const res = await api.post("/auth/login", { email, password });
-      localStorage.setItem("token", res.data.token);
-      navigate("/admin/home");
-    } catch (err) {
-      alert(err.response?.data?.message || "Login failed");
-    }
-  };
-
+const handleLogin = async () => {
+  try {
+    const res = await api.post("/auth/login", { email, password });
+    console.log("LOGIN SUCCESS:", res.data);
+    localStorage.setItem("token", res.data.token);
+    navigate("/admin/home");
+  } catch (err) {
+    console.error("LOGIN FAILED:", err);
+    alert(err.response?.data?.message || "Login failed");
+  }
+};
   return (
     <div className="flex items-center justify-center h-screen">
       <div className="p-6 border rounded shadow w-80">
